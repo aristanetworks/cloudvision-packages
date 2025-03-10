@@ -1,0 +1,857 @@
+type: DASHBOARD
+name: Network Infrastructure Health
+description: Summary of Network Infrastructure Health
+widgets:
+- id: fea05e07-5235-4c28-ae7c-cc52e53e149d
+  name: Streaming Status
+  position:
+    xpos: 0
+    ypos: 0
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - SYS_DEVICE_INACTIVE
+    - TERMINATTR_MEMORY_MODE_LOW
+    - DEVICE_STREAMING_ISSUES_GROUP
+    - UNSUPPORTED_TERMINATTR_VERSION_TOO_LOW
+    - RATE_LIMITER
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: c54e05a5-ba0f-4335-8f5e-6e83e679cb49
+  name: Temperature/Cooling
+  position:
+    xpos: 15
+    ypos: 3
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - DEVICE_HIGH_INLET_TEMP
+    - FAN_STATUS_ERR
+    - FAN_HIGH_SPEED
+    - SYSLOG_V2
+    maintenanceState: all
+    ruleIdFilter:
+    - System overheating
+    - Temperature sensor overheating
+    - Temperature sensor critical
+    - Default rule
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: c8c26915-98ba-4d8e-a0f3-3ad82926ebbe
+  name: Device Disk
+  position:
+    xpos: 15
+    ypos: 0
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - LOW_DEVICE_DISK_SPACE
+    - DISK_USAGE_PREDICT_THRESHOLD
+    - SYSLOG_V2
+    maintenanceState: all
+    ruleIdFilter:
+    - Storage device monitor has error
+    - Storage device has IO error
+    - Storage device has faulty USB
+    - Default rule
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: 71b8dd15-5dc1-4ebd-88fe-385629c79acf
+  name: CPU
+  position:
+    xpos: 10
+    ypos: 3
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - HIGH_CPU_UTILIZATION
+    - HIGH_CPU_DP_UTILIZATION
+    - HIGH_CPU_LOAD_AVG
+    - HIGH_CPU_AVG_DP_UTILIZATION
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: 946cf360-1632-47f6-9f06-e129ce345150
+  name: Device Memory
+  position:
+    xpos: 5
+    ypos: 3
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - DEVICE_HIGH_MEMORY_USAGE
+    - MEMORY_USAGE_PREDICT_THRESHOLD
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: 9ca4ece4-e85a-4f45-a7fc-fc92adb790a6
+  name: L1 Status
+  position:
+    xpos: 8
+    ypos: 0
+  dimensions:
+    width: 4
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - DOM_POWER_ANOMALY
+    - DOM_TXPOWER_LANE_IMBALANCE
+    - DOM_TXBIAS_LANE_IMBALANCE
+    - DOM_RXPOWER_LANE_IMBALANCE
+    - HIGH_PRE_FEC_BER_WARNING
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+      Interfaces: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: 2e5d2172-46fe-4682-81cf-11068d2f170e
+- id: 0aba2ca5-1374-4df9-91e9-bbdcba569d05
+  name: Power Supply
+  position:
+    xpos: 5
+    ypos: 6
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - POWER_SUPPLY_STATUS_ERR
+    - SYSLOG_V2
+    maintenanceState: all
+    ruleIdFilter:
+    - Input power loss
+    - Default rule
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - INFO
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: 86795441-11d1-4185-8714-5425e5aaf58a
+  name: Interface Down
+  position:
+    xpos: 0
+    ypos: 0
+  dimensions:
+    width: 4
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - DEVICE_INTF_ERR_SMART
+    - LINK_DOWN_ERROR_GROUP
+    - DEVICE_LINK_ERR
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+      Interfaces: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: 2e5d2172-46fe-4682-81cf-11068d2f170e
+- id: 35dcf78f-c531-46d2-801b-5beb1626af0c
+  name: Clock Sync
+  position:
+    xpos: 10
+    ypos: 0
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - CLOCK_NOT_SYNCED
+    - HIGH_STREAMING_LATENCY
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: 04cbfad6-d649-4787-bbad-3f56766e181d
+  name: Error Disabled
+  position:
+    xpos: 4
+    ypos: 0
+  dimensions:
+    width: 4
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - DEVICE_INTF_ERR_DISABLED
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+      Interfaces: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: 2e5d2172-46fe-4682-81cf-11068d2f170e
+- id: f0fa6826-2b02-461a-8616-d47d4e75042b
+  name: Device Reboot
+  position:
+    xpos: 5
+    ypos: 0
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - SYS_BOOTED
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: false
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: a551b6d3-d630-4433-a07d-e99bdb90facc
+  name: Hardware Table Usage
+  position:
+    xpos: 0
+    ypos: 3
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - HARDWARE_PREDICT_THRESHOLD
+    - HIGH_HARDWARE_TABLE_USAGE
+    - SYSLOG_V2
+    maintenanceState: all
+    ruleIdFilter:
+    - Table utilization is high
+    - Default rule
+    - Default rule (usage >= 100%)
+    - Default rule (usage > 90%)
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: a489b227-8850-4ac6-8de6-fa1a57da9dbc
+  name: Config Sanity
+  position:
+    xpos: 10
+    ypos: 9
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - EVPN_CONFIG_SANITY
+    - VXLAN_CONFIG_SANITY
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - CRITICAL
+    - ERROR
+    - WARNING
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: f7af5e62-5dd1-466b-be62-99829167b691
+  name: Chassis Status
+  position:
+    xpos: 0
+    ypos: 0
+  dimensions:
+    width: 20
+    height: 14
+  type: group-widget
+  inputs: {}
+  location: main
+  styles:
+    backgroundColor: ""
+    hideTitle: false
+    hideHorizontalBar: false
+    titleSize: 16
+  parent: ""
+- id: 2e5d2172-46fe-4682-81cf-11068d2f170e
+  name: Interface Status
+  position:
+    xpos: 0
+    ypos: 14
+  dimensions:
+    width: 20
+    height: 5
+  type: group-widget
+  inputs: {}
+  location: main
+  styles: null
+  parent: ""
+- id: 6a59b92f-2424-4112-8f4b-a2e5e33160ab
+  name: Compliance
+  position:
+    xpos: 20
+    ypos: 0
+  dimensions:
+    width: 4
+    height: 7
+  type: security-exposure-widget
+  inputs:
+    complianceView: ALL_COMPLIANCE_COUNTS
+    selectedCustomTags:
+    - Tags
+    tags: ""
+  location: main
+  styles: null
+  parent: ""
+- id: fae2870f-f220-4f80-819d-251dff4b0cd3
+  name: Device Security
+  position:
+    xpos: 15
+    ypos: 9
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - BUGALERTS_CVE_EXPOSED
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - CRITICAL
+    - ERROR
+    - WARNING
+    showAcked: false
+    showActiveOnly: false
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: 6e7a46e2-3211-4907-bdf8-c08b1a10c23b
+  name: Device Agents
+  position:
+    xpos: 10
+    ypos: 6
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - AGENT_CRASH
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: 079114f0-1909-40cb-baf2-e5913f6f615a
+  name: Line Cards
+  position:
+    xpos: 15
+    ypos: 6
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - SYSLOG_V2
+    maintenanceState: all
+    ruleIdFilter:
+    - Card removed
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: false
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: e53957a9-382a-45e5-ab34-9ce70aa4eb25
+  name: Internal Hardware Drops
+  position:
+    xpos: 0
+    ypos: 6
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - SYSLOG_V2
+    maintenanceState: all
+    ruleIdFilter:
+    - Hardware error counter dropped
+    - Persistent Hardware error counter drops
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: false
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: 56f4437e-54e9-4e2f-aea2-ee5aadea7baf
+  name: Config Compliance
+  position:
+    xpos: 0
+    ypos: 9
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - DEVICE_DESIGNED_CONFIG_COMPLIANCE
+    - DEVICE_CONFIG_COMPLIANCE
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: e6570ad2-0fd9-4833-9ad0-8745b3863511
+  name: License
+  position:
+    xpos: 5
+    ypos: 9
+  dimensions:
+    width: 5
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - LICENSE_EXPIRY
+    - SYSLOG_V2
+    maintenanceState: all
+    ruleIdFilter:
+    - Default rule (expired)
+    - Default rule (expiring in 7 days or less)
+    - Default rule (expiring in 30 days or less)
+    - Default rule (expiring in 90 days or less)
+    - License not found
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: false
+    showThresholdCount:
+      Devices: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: f7af5e62-5dd1-466b-be62-99829167b691
+- id: 08df9537-041e-406b-9672-4ba9eca70d6f
+  name: Discards and Errors
+  position:
+    xpos: 12
+    ypos: 0
+  dimensions:
+    width: 4
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - INTF_IN_DISCARDS_DEVICE_ANOMALY
+    - INTF_IN_ERRS_DEVICE_ANOMALY
+    - INTF_OUT_DISCARDS_DEVICE_ANOMALY
+    - INTF_OUT_ERRS_DEVICE_ANOMALY
+    - HIGH_INTF_OUT_ERRS
+    - INTERFACE_RATES_THRESHOLDS_GROUP
+    - INTERFACE_CONGESTION_TXDROPS_GROUP
+    - HIGH_INTF_FCS_ERRS
+    - HIGH_INTF_GIANT
+    - HIGH_INTF_RUNT
+    - HIGH_INTF_ALIGNMENT_ERRS
+    - HIGH_INTF_IN_DISCARDS
+    - HIGH_INTF_IN_ERRS
+    - HIGH_PFC_IN
+    - HIGH_INTF_SYMBOL_ERRS
+    - HIGH_INTF_OUT_DISCARDS
+    - HIGH_PFC_OUT
+    - HIGH_ECN_OUT_RATE
+    - HIGH_LANZ_QDROPS
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+      Interfaces: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: 2e5d2172-46fe-4682-81cf-11068d2f170e
+- id: a47d8a11-e146-4fdf-9d29-99c1e0cae01c
+  name: ""
+  position:
+    xpos: 20
+    ypos: 7
+  dimensions:
+    width: 4
+    height: 10
+  type: metrics-widget-aggregate
+  inputs:
+    components: []
+    isTokenSearchEnabled: true
+    limits: {}
+    metricKeys:
+    - DEVICE_EOS_VERSION
+    metricSource: devices
+    selectedCustomTags:
+    - Tags
+    tags: ""
+    viewType: metric
+  location: main
+  styles: null
+  parent: ""
+- id: 6522ca10-0bc0-4b2d-99f1-46fab4f0ffb8
+  name: Port Channels
+  position:
+    xpos: 16
+    ypos: 0
+  dimensions:
+    width: 4
+    height: 3
+  type: events-widget
+  inputs:
+    chartGroupBy: Timestamp
+    chartOrientationMode: Vertical
+    eventCountThreshold: 1
+    eventTypeFilter:
+    - PORT_CHANNEL_GROUP
+    - PORT_CHANNEL_MISCONFIG
+    - PORT_CHANNEL_TRAFFIC_IMBALANCE
+    maintenanceState: all
+    ruleIdFilter: []
+    selectedCustomTags:
+    - Tags
+    severityFilter:
+    - WARNING
+    - ERROR
+    - CRITICAL
+    showAcked: false
+    showActiveOnly: true
+    showThresholdCount:
+      Devices: true
+      Interfaces: true
+    tagType: devices
+    tags: ""
+    viewMode: Event Count Threshold
+  location: main
+  styles: null
+  parent: 2e5d2172-46fe-4682-81cf-11068d2f170e
+- id: 1cd26e62-9f1d-4954-8aa5-65a63185c007
+  name: ""
+  position:
+    xpos: 0
+    ypos: 0
+  dimensions:
+    width: 24
+    height: 2
+  type: tag-query-widget
+  inputs:
+    defaultValue: device:*
+    inputName: Tags
+    inputSource: devices
+  location: inputs
+  styles: null
+  parent: ""
