@@ -1,0 +1,26 @@
+type: STUDIO
+name: Campus Fabric (L2/L3/EVPN)
+description: Deploy and manage an Arista validated L2, L3, and EVPN based campus fabric,
+  and configure networks and tenants within the campus.
+schema:
+  file: schema.yaml
+layout:
+  file: layout.yaml
+template:
+  language: MAKO
+  file: template.mako
+build-hooks: []
+autofill-actions:
+- input-field-id: memberLeafsNodeId
+  action-id: action-avd-campus-fabric-autofill-nodeid
+  description: Autofill Member Leaf Node ID
+- input-field-id: campusPodThirdPartyDevicesNodeId
+  action-id: action-avd-campus-fabric-autofill-nodeid
+  description: Autofill Third Party Device Node ID
+- input-field-id: leafsNodeId
+  action-id: action-avd-campus-fabric-autofill-nodeid
+  description: Autofill Leaf Node ID
+- input-field-id: spinesNodeId
+  action-id: action-avd-campus-fabric-autofill-nodeid
+  description: Autofill Spine Node ID
+dependencies: []
