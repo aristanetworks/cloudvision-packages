@@ -219,7 +219,6 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
-      Interfaces: true
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -292,7 +291,6 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
-      Interfaces: true
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -360,7 +358,6 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
-      Interfaces: true
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -773,7 +770,6 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
-      Interfaces: true
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -832,7 +828,6 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
-      Interfaces: true
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
