@@ -1,9 +1,9 @@
 type: DASHBOARD
 name: Network Infrastructure Health
-description: Summary of Network Infrastructure Health
+description: View a summary of the issues that impact network infrastructure at device and interface levels
 widgets:
 - id: fea05e07-5235-4c28-ae7c-cc52e53e149d
-  name: Streaming Status
+  name: Streaming Issues
   position:
     xpos: 0
     ypos: 0
@@ -33,6 +33,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -40,7 +41,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: c54e05a5-ba0f-4335-8f5e-6e83e679cb49
-  name: Temperature/Cooling
+  name: Temperature and Cooling Issues
   position:
     xpos: 15
     ypos: 3
@@ -73,6 +74,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -80,7 +82,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: c8c26915-98ba-4d8e-a0f3-3ad82926ebbe
-  name: Device Disk
+  name: Disk Space and Storage Issues
   position:
     xpos: 15
     ypos: 0
@@ -112,6 +114,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -119,7 +122,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: 71b8dd15-5dc1-4ebd-88fe-385629c79acf
-  name: CPU
+  name: CPU Usage
   position:
     xpos: 10
     ypos: 3
@@ -148,6 +151,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -155,7 +159,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: 946cf360-1632-47f6-9f06-e129ce345150
-  name: Device Memory
+  name: Memory Usage
   position:
     xpos: 5
     ypos: 3
@@ -182,6 +186,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -189,7 +194,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: 9ca4ece4-e85a-4f45-a7fc-fc92adb790a6
-  name: L1 Status
+  name: L1 Issues
   position:
     xpos: 8
     ypos: 0
@@ -219,6 +224,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -226,7 +232,7 @@ widgets:
   styles: null
   parent: 2e5d2172-46fe-4682-81cf-11068d2f170e
 - id: 0aba2ca5-1374-4df9-91e9-bbdcba569d05
-  name: Power Supply
+  name: Power Supply Failures
   position:
     xpos: 5
     ypos: 6
@@ -256,6 +262,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -263,7 +270,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: 86795441-11d1-4185-8714-5425e5aaf58a
-  name: Interface Down
+  name: Unexpected Shutdowns
   position:
     xpos: 0
     ypos: 0
@@ -291,6 +298,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -298,7 +306,7 @@ widgets:
   styles: null
   parent: 2e5d2172-46fe-4682-81cf-11068d2f170e
 - id: 35dcf78f-c531-46d2-801b-5beb1626af0c
-  name: Clock Sync
+  name: Clock Sync Issues
   position:
     xpos: 10
     ypos: 0
@@ -325,6 +333,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -332,7 +341,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: 04cbfad6-d649-4787-bbad-3f56766e181d
-  name: Error Disabled
+  name: Error-Disabled Status
   position:
     xpos: 4
     ypos: 0
@@ -358,6 +367,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -365,7 +375,7 @@ widgets:
   styles: null
   parent: 2e5d2172-46fe-4682-81cf-11068d2f170e
 - id: f0fa6826-2b02-461a-8616-d47d4e75042b
-  name: Device Reboot
+  name: Reboots
   position:
     xpos: 5
     ypos: 0
@@ -391,6 +401,7 @@ widgets:
     showActiveOnly: false
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -430,6 +441,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -437,7 +449,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: a489b227-8850-4ac6-8de6-fa1a57da9dbc
-  name: Config Sanity
+  name: Config Consistency Check Failures
   position:
     xpos: 10
     ypos: 9
@@ -464,6 +476,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -471,7 +484,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: f7af5e62-5dd1-466b-be62-99829167b691
-  name: Chassis Status
+  name: Device Status
   position:
     xpos: 0
     ypos: 0
@@ -518,7 +531,7 @@ widgets:
   styles: null
   parent: ""
 - id: fae2870f-f220-4f80-819d-251dff4b0cd3
-  name: Device Security
+  name: Security Threats
   position:
     xpos: 15
     ypos: 9
@@ -544,6 +557,7 @@ widgets:
     showActiveOnly: false
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -551,7 +565,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: 6e7a46e2-3211-4907-bdf8-c08b1a10c23b
-  name: Device Agents
+  name: Agent Crashes
   position:
     xpos: 10
     ypos: 6
@@ -577,6 +591,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -584,7 +599,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: 079114f0-1909-40cb-baf2-e5913f6f615a
-  name: Line Cards
+  name: Line Card Removals
   position:
     xpos: 15
     ypos: 6
@@ -611,6 +626,7 @@ widgets:
     showActiveOnly: false
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -646,6 +662,7 @@ widgets:
     showActiveOnly: false
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -653,7 +670,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: 56f4437e-54e9-4e2f-aea2-ee5aadea7baf
-  name: Config Compliance
+  name: Configuration Compliance
   position:
     xpos: 0
     ypos: 9
@@ -680,6 +697,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -687,7 +705,7 @@ widgets:
   styles: null
   parent: f7af5e62-5dd1-466b-be62-99829167b691
 - id: e6570ad2-0fd9-4833-9ad0-8745b3863511
-  name: License
+  name: Expiring Licenses
   position:
     xpos: 5
     ypos: 9
@@ -719,6 +737,7 @@ widgets:
     showActiveOnly: false
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -770,6 +789,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
@@ -800,7 +820,7 @@ widgets:
   styles: null
   parent: ""
 - id: 6522ca10-0bc0-4b2d-99f1-46fab4f0ffb8
-  name: Port Channels
+  name: Port Channel Issues
   position:
     xpos: 16
     ypos: 0
@@ -828,6 +848,7 @@ widgets:
     showActiveOnly: true
     showThresholdCount:
       Devices: true
+      Interfaces: false
     tagType: devices
     tags: ""
     viewMode: Event Count Threshold
