@@ -20,7 +20,6 @@ widgets:
     - TERMINATTR_MEMORY_MODE_LOW
     - DEVICE_STREAMING_ISSUES_GROUP
     - UNSUPPORTED_TERMINATTR_VERSION_TOO_LOW
-    - RATE_LIMITER
     maintenanceState: all
     ruleIdFilter: []
     selectedCustomTags:
@@ -207,11 +206,11 @@ widgets:
     chartOrientationMode: Vertical
     eventCountThreshold: 1
     eventTypeFilter:
-    - DOM_POWER_ANOMALY
-    - DOM_TXPOWER_LANE_IMBALANCE
-    - DOM_TXBIAS_LANE_IMBALANCE
-    - DOM_RXPOWER_LANE_IMBALANCE
-    - HIGH_PRE_FEC_BER_WARNING
+    - DOM_RXPOWER_ANOMALY
+    - DOM_TEMPERATURE_ANOMALY
+    - DOM_TXBIAS_ANOMALY
+    - DOM_TXPOWER_ANOMALY
+    - DOM_VOLTAGE_ANOMALY
     maintenanceState: all
     ruleIdFilter: []
     selectedCustomTags:
@@ -758,10 +757,6 @@ widgets:
     chartOrientationMode: Vertical
     eventCountThreshold: 1
     eventTypeFilter:
-    - INTF_IN_DISCARDS_DEVICE_ANOMALY
-    - INTF_IN_ERRS_DEVICE_ANOMALY
-    - INTF_OUT_DISCARDS_DEVICE_ANOMALY
-    - INTF_OUT_ERRS_DEVICE_ANOMALY
     - HIGH_INTF_OUT_ERRS
     - INTERFACE_RATES_THRESHOLDS_GROUP
     - INTERFACE_CONGESTION_TXDROPS_GROUP
@@ -771,11 +766,8 @@ widgets:
     - HIGH_INTF_ALIGNMENT_ERRS
     - HIGH_INTF_IN_DISCARDS
     - HIGH_INTF_IN_ERRS
-    - HIGH_PFC_IN
     - HIGH_INTF_SYMBOL_ERRS
     - HIGH_INTF_OUT_DISCARDS
-    - HIGH_PFC_OUT
-    - HIGH_ECN_OUT_RATE
     - HIGH_LANZ_QDROPS
     maintenanceState: all
     ruleIdFilter: []
@@ -835,7 +827,6 @@ widgets:
     eventTypeFilter:
     - PORT_CHANNEL_GROUP
     - PORT_CHANNEL_MISCONFIG
-    - PORT_CHANNEL_TRAFFIC_IMBALANCE
     maintenanceState: all
     ruleIdFilter: []
     selectedCustomTags:
@@ -865,7 +856,7 @@ widgets:
     height: 2
   type: tag-query-widget
   inputs:
-    defaultValue: device:*
+    defaultValue: ""
     inputName: Tags
     inputSource: devices
   location: inputs
