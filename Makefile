@@ -2,7 +2,7 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-.PHONY: bundled_packages packages dist lint
+.PHONY: gen_dir bundled_packages packages dist lint dev_setup
 
 lint:
 	flake8
@@ -13,13 +13,11 @@ gen_dir:
 
 # Packages up all packages in the repo listed in the bundled.yaml file
 bundled_packages: gen_dir
-	find . -mindepth 1 -maxdepth 1 -name "*-package" -type d -execdir grep -q {} bundled.yaml \; -execdir tar cf {}.tar {} \;
-	mv *.tar gen
+	./build_bundled_packages.sh
 
 # Packages up all packages in the repo
 packages: gen_dir
-	find . -mindepth 1 -maxdepth 1 -name "*-package" -type d -execdir tar cf {}.tar {} \;
-	mv *.tar gen
+	./build_packages.sh
 
 dist: packages
 	cd gen && sha512sum * > CHECKSUMS.sha512

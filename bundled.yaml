@@ -1,4 +1,0 @@
-bundled-packages:
-  [
-    ./network-infra-health-package,
-  ]
