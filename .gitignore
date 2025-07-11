@@ -1,0 +1,4 @@
+.vscode/
+*.tar
+gen/*
+*.DS_Store
