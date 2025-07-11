@@ -23,3 +23,6 @@ packages: gen_dir
 
 dist: packages
 	cd gen && sha512sum * > CHECKSUMS.sha512
+
+dev_setup:
+	python3 -m pip install -r requirements-dev.txt
