@@ -1,0 +1,4 @@
+type: PACKAGE
+name: Studio Date and Time
+description: "Package containing Studio Date and Time that configures device time zones and NTP servers"
+version: 0.0.120

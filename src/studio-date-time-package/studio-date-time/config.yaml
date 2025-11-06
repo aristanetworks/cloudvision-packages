@@ -1,0 +1,11 @@
+type: STUDIO
+name: Date and Time
+description: Configure device time zones and NTP servers
+schema:
+  file: schema.yaml
+template:
+  language: MAKO
+  file: template.mako
+build-hooks: []
+autofill-actions: []
+dependencies: []

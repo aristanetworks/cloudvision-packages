@@ -1,0 +1,209 @@
+iburst:
+  boolean_props:
+    default_value: false
+  description: ""
+  id: iburst
+  label: Enable iburst
+  name: iburst
+  type: INPUT_FIELD_TYPE_BOOLEAN
+managementVrfNtp:
+  description: Configure a VRF for the source interface. This will override any VRF
+    set in the NTP Settings section.
+  id: managementVrfNtp
+  label: VRF
+  name: managementVrf
+  string_props:
+    extra_values_allowed: true
+    static_options:
+      values:
+      - MGMT
+      - default
+  type: INPUT_FIELD_TYPE_STRING
+ntpServer:
+  description: Enter the hostname or IP address
+  id: ntpServer
+  label: Server
+  name: ntpServer
+  string_props: {}
+  type: INPUT_FIELD_TYPE_STRING
+ntpServerDetails:
+  description: NTP Server Details
+  group_props:
+    members:
+      values:
+      - vrf
+      - ntpServer
+      - preferred
+      - iburst
+  id: ntpServerDetails
+  label: NTP Server Details
+  name: ntpServerDetails
+  type: INPUT_FIELD_TYPE_GROUP
+ntpServerResolver:
+  description: Select devices to assign to NTP servers.
+  id: ntpServerResolver
+  label: NTP Settings
+  name: ntpServerResolver
+  resolver_props:
+    base_field_id: ntpServers
+    display_mode: RESOLVER_FIELD_DISPLAY_MODE_SPARSE
+    input_mode: RESOLVER_FIELD_INPUT_MODE_MULTI_DEVICE_TAG
+  type: INPUT_FIELD_TYPE_RESOLVER
+ntpServers:
+  collection_props:
+    base_field_id: ntpServerDetails
+    key: ntpServer
+  description: Provide the details of one or more NTP servers.
+  id: ntpServers
+  label: NTP Servers
+  name: ntpServers
+  type: INPUT_FIELD_TYPE_COLLECTION
+ntpSourceInterfaceGroup:
+  description: NTP source interface settings for a group of devices
+  group_props:
+    members:
+      values:
+      - managementVrfNtp
+      - sourceInterfaceNtp
+      - sourceAddressNtp
+  id: ntpSourceInterfaceGroup
+  label: NTP Source Interface Settings
+  name: ntpSourceInterfaceGroup
+  type: INPUT_FIELD_TYPE_GROUP
+ntpSourceInterfaceResolver:
+  description: Configure source interface for NTP for a device group using tags
+  id: ntpSourceInterfaceResolver
+  label: Source Interface Settings for NTP
+  name: ntpSourceInterfaceResolver
+  resolver_props:
+    base_field_id: ntpSourceInterfaceGroup
+    display_mode: RESOLVER_FIELD_DISPLAY_MODE_SPARSE
+    input_mode: RESOLVER_FIELD_INPUT_MODE_MULTI_DEVICE_TAG
+  type: INPUT_FIELD_TYPE_RESOLVER
+otherTimezone:
+  description: Enter a time zone name when selecting Other from the time zone list
+  id: otherTimezone
+  label: Other Time Zone
+  name: otherTimezone
+  string_props: {}
+  type: INPUT_FIELD_TYPE_STRING
+preferred:
+  boolean_props:
+    default_value: false
+  description: ""
+  id: preferred
+  label: Preferred
+  name: preferred
+  type: INPUT_FIELD_TYPE_BOOLEAN
+root:
+  group_props:
+    members:
+      values:
+      - timezoneResolver
+      - ntpSourceInterfaceResolver
+      - ntpServerResolver
+  id: root
+  label: ""
+  name: ""
+  type: INPUT_FIELD_TYPE_GROUP
+sourceAddressNtp:
+  description: Source IP Address for the NTP servers.
+  id: sourceAddressNtp
+  label: Source Address
+  name: sourceAddress
+  required: false
+  string_props:
+    extra_values_allowed: false
+    is_secret: false
+  type: INPUT_FIELD_TYPE_STRING
+sourceInterfaceNtp:
+  description: Source interface for the NTP servers.
+  id: sourceInterfaceNtp
+  label: Source Interface
+  name: sourceInterface
+  string_props:
+    extra_values_allowed: true
+    static_options:
+      values:
+      - Use OOB Management Interface
+  type: INPUT_FIELD_TYPE_STRING
+timezone:
+  id: timezone
+  label: Select Time Zone
+  name: timezone
+  string_props:
+    static_options:
+      values:
+      - Other
+      - CET
+      - CST6CDT
+      - Cuba
+      - EET
+      - EST
+      - EST5EDT
+      - Egypt
+      - Eire
+      - GB
+      - GB-Eire
+      - GMT
+      - GMT+0
+      - GMT-0
+      - GMT0
+      - Greenwich
+      - HST
+      - Hongkong
+      - Iceland
+      - Iran
+      - Israel
+      - Jamaica
+      - Japan
+      - Kwajalein
+      - Libya
+      - MET
+      - MST
+      - MST7MDT
+      - NZ
+      - NZ-CHAT
+      - Navajo
+      - PRC
+      - PST8PDT
+      - Poland
+      - Portugal
+      - ROC
+      - ROK
+      - Singapore
+      - Turkey
+      - UCT
+      - UTC
+      - Universal
+      - W-SU
+      - WET
+      - Zulu
+  type: INPUT_FIELD_TYPE_STRING
+timezoneGroup:
+  group_props:
+    members:
+      values:
+      - timezone
+      - otherTimezone
+  id: timezoneGroup
+  label: Time Zone
+  name: timezoneGroup
+  type: INPUT_FIELD_TYPE_GROUP
+timezoneResolver:
+  description: Assign time zones to devices or set a default time zone.
+  id: timezoneResolver
+  label: Device Time Zone
+  name: timezoneResolver
+  resolver_props:
+    base_field_id: timezoneGroup
+    display_mode: RESOLVER_FIELD_DISPLAY_MODE_SPARSE
+    input_mode: RESOLVER_FIELD_INPUT_MODE_MULTI_DEVICE_TAG
+  type: INPUT_FIELD_TYPE_RESOLVER
+vrf:
+  description: ""
+  id: vrf
+  label: VRF
+  name: vrf
+  string_props: {}
+  type: INPUT_FIELD_TYPE_STRING
