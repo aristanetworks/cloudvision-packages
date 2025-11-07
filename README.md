@@ -2,14 +2,14 @@
 
 ## Overview
 
-This repository contains a number of example packages available to install directly into CloudVision and to serve as reference to those designing their own.
+This repository contains a number of supported packages available to install directly into CloudVision.
+Packages listed in `bundled.txt` are **_bundled by default_** with CloudVision on-premises installations.
+
 **Ready-to-install package artifacts are available on the [releases page](https://github.com/aristanetworks/cloudvision-packages/releases)**
 **Please note that packages in the trunk branch may not be compatible with your installation of CloudVision. Please refer to the branch/[release](https://github.com/aristanetworks/cloudvision-packages/releases) corresponding to your CloudVision version for compatible packages.**
 Packages are forwards compatible within a CloudVision release, with new releases in a maintenance train only being made if bugs are addressed. If a release does not exist for the your latest running maintenance version of CloudVision, then the latest release of that train has the most up-to-date packages and will work on your installation, e.g. 2025.1.0 artifacts work for CloudVision version 2025.1.1, 2025.1.2, etc.
-CVaaS users are directed to install the latest release artifacts on their systems.
 
-Once uploaded onto a CloudVision cluster, these packages may be duplicated and further customised for specific use cases.
-Packages listed in `bundled.txt` are **_bundled by default_** with CloudVision on-premises installations.
+**CVaaS** users are directed to install the _latest_ release artifacts on their systems.
 
 ## How to Upload Packages to a CloudVision cluster
 
