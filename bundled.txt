@@ -1,1 +1,7 @@
+bgp-monitor-action-pack
+connectivity-monitor-action-pack
+delete-swis-action-pack
+event-monitor-action-pack
 network-infra-health-package
+sleep-action-pack
+tac-bundle-action-pack
