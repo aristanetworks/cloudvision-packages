@@ -51,9 +51,10 @@ ctx.info(f"Command to run on the device: {cmds}")
 # 3. Run the commands on the device
 output_cmd_list = ctx.runDeviceCmds(cmds)
 csr_generated = output_cmd_list[2]["response"]["messages"][0]
+csr_escaped = csr_generated.replace("\n", "\\n")
 
 csr_content_cmd = (
-    f' bash timeout 10 printf "%s" "{csr_generated} " > /mnt/flash/{hostname}-csr.csr '
+    f'bash timeout 10 bash -c "echo -e \'{csr_escaped}\' > /mnt/flash/{hostname}-csr.csr"'
 )
 # Uncomment the following line if you want to display CSR in CVP logs
 # ctx.info(f"Command to run on the device: {csr_content_cmd}")
