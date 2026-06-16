@@ -1,14 +1,10 @@
 #!/bin/sh
+# Copyright (c) 2026 Arista Networks, Inc.
+# Use of this source code is governed by the Apache License 2.0
+# that can be found in the COPYING file.
 
 set -e
 
-artifacts_dir=gen
-mkdir -p $artifacts_dir
-
 bundled_actions=`cat bundled.txt`
 
-for pkg in $bundled_actions; do
-	version=`cat src/$pkg/config.yaml | grep version | awk '{print $2}'`
-	id=`basename $pkg`
-	tar -C src -cf $artifacts_dir/$id"_"$version.tar $id
-done
+./build_packages.sh $bundled_actions
