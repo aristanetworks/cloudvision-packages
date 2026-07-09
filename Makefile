@@ -2,14 +2,11 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-.PHONY: bundled_packages packages dist lint test dev_setup
+.PHONY: bundled_packages packages dist lint dev_setup
 
 lint:
 	flake8
 	./check_copyright.sh
-
-test:
-	pytest
 
 # Packages up all packages in the repo listed in the bundled.yaml file
 bundled_packages:
