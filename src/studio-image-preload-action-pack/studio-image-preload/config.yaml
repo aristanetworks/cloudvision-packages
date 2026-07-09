@@ -1,0 +1,47 @@
+type: ACTION
+action-type: CHANGECONTROL_CUSTOM
+language: PYTHON_3
+name: Studio Image Preload
+description: Preloads a Studio or Software Management EOS SWI onto a device without changing boot config or reloading.
+file: script.py
+static-params: []
+dynamic-params:
+  - name: DeviceID
+    description: The ID of the device to preload the image onto
+    required: true
+    hidden: false
+  - name: Source
+    description: Image source mode. Use designed, running, or repository.
+    required: false
+    hidden: false
+    default: designed
+  - name: Repository Image
+    description: Software Management image name or version when Source is repository
+    required: false
+    hidden: false
+    default: ""
+  - name: authority
+    description: CloudVision authority. Leave empty to use the current action context.
+    required: false
+    hidden: false
+    default: ""
+  - name: VRF
+    description: Device VRF used for the CVP management namespace
+    required: false
+    hidden: false
+    default: MGMT
+  - name: Source IP
+    description: Device management source IP. Leave empty to use the selected device IP.
+    required: false
+    hidden: false
+    default: ""
+  - name: Destination
+    description: Destination path on the device. Leave empty to use /mnt/flash/<image filename>.
+    required: false
+    hidden: false
+    default: ""
+  - name: Force
+    description: Rewrite the target file even when an existing complete file is detected
+    required: false
+    hidden: false
+    default: "False"
