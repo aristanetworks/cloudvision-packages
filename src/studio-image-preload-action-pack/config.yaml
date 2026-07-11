@@ -1,0 +1,4 @@
+type: PACKAGE
+version: 1.0.0
+name: studio-image-preload Action package
+description: Action package containing a Studio-aware EOS image preload action.
