@@ -1,0 +1,4 @@
+type: PACKAGE
+name: Stateful BGP Maintenance Actions
+description: Generic Change Control BGP maintenance actions with baseline-aware peer validation
+version: 1.0.1

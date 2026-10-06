@@ -1,0 +1,17 @@
+type: ACTION
+name: Exit Stateful BGP Maintenance Mode
+description: Exit BGP maintenance mode while tolerating peers already down in the baseline
+language: PYTHON_3
+action-type: CHANGECONTROL_CUSTOM
+file: script.py
+dynamic-params:
+- name: DeviceID
+  description: ID of the device on which to run the action
+  required: true
+  hidden: false
+  default: ""
+- name: PeerRecoveryTimeoutSeconds
+  description: Maximum seconds to wait for BGP peers to recover after maintenance
+  required: false
+  hidden: false
+  default: "300"
