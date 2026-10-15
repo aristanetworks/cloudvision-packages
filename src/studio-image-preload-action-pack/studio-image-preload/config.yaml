@@ -1,0 +1,79 @@
+type: ACTION
+action-type: CHANGECONTROL_CUSTOM
+language: PYTHON_3
+name: Studio Image Preload
+description: >-
+  Preloads Studio or Software Management artifacts onto a device without
+  changing boot config, installing extensions, or reloading.
+file: script.py
+static-params: []
+dynamic-params:
+  - name: DeviceID
+    description: The ID of the device to preload the image onto
+    required: true
+    hidden: false
+  - name: Source
+    description: Image source mode. Use designed, running, or repository.
+    required: true
+    hidden: false
+    default: designed
+    values:
+      - designed
+      - running
+      - repository
+  - name: Repository Image
+    description: >-
+      Software Management artifact name or version for repository mode
+      (e.g. EOS-4.34.7M.swi or 4.34.7M). Leave auto otherwise; only used when
+      Source is repository.
+    required: false
+    hidden: false
+    default: auto
+  - name: Repository Streaming Agent
+    description: >-
+      TerminAttr streaming agent artifact name or version for repository mode
+      (e.g. TerminAttr-1.40.10-1.swix). Leave auto to use the EOS embedded
+      agent. Only used when Source is repository; ignored otherwise.
+    required: false
+    hidden: false
+    default: auto
+  - name: Repository Extensions
+    description: >-
+      Extension artifact names or versions for repository mode, comma-separated
+      (e.g. switchapp-1.15.1-1.10.swix, otheragent-2.0.swix). Leave auto when no
+      extensions are needed. Only used when Source is repository; ignored
+      otherwise.
+    required: false
+    hidden: false
+    default: auto
+  - name: Authority
+    description: CloudVision authority. Use auto for the current action context.
+    required: false
+    hidden: false
+    default: auto
+  - name: VRF
+    description: >-
+      Device VRF used for the CVP management namespace. Use auto to detect from
+      the CVP-managed source IP.
+    required: false
+    hidden: false
+    default: auto
+  - name: Source IP
+    description: >-
+      Device management source IP. Use auto for the selected device IP.
+    required: false
+    hidden: false
+    default: auto
+  - name: Destination
+    description: >-
+      Destination path on the device. Use auto for
+      /mnt/flash/<image filename>.
+    required: false
+    hidden: false
+    default: auto
+  - name: Force
+    description: >-
+      Rewrite the target file even when an existing complete file is detected.
+    required: false
+    hidden: false
+    default: "False"
