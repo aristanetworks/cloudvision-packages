@@ -1,6 +1,6 @@
 type: ACTION
 name: Enter Stateful BGP Maintenance Mode
-description: Enter BGP maintenance mode and record the pre-maintenance BGP peer baseline
+description: Record the pre-maintenance BGP peer baseline and enter maintenance mode.
 language: PYTHON_3
 action-type: CHANGECONTROL_CUSTOM
 file: script.py

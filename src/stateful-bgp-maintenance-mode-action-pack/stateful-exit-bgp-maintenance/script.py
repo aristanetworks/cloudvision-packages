@@ -296,7 +296,7 @@ def _wait_for_maintenance(ctx):
         if state != "maintenanceModeEnter":
             _fail("unit System is not under maintenance mode: " + str(state))
         if attempt % 15 == 0 and attempt:
-            ctx.info("Still waiting for BGP peer recovery; elapsed seconds: {}".format(
+            ctx.info("Still waiting for maintenance entry; elapsed seconds: {}".format(
                 attempt * 2
             ))
         if attempt < TRANSITION_ATTEMPTS - 1:

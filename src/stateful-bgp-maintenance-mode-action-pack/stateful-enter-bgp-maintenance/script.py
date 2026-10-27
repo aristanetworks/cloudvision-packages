@@ -21,6 +21,9 @@ ALIAS_RE = re.compile(
     r"(?:^|\s)(?:alias\s+)?(%s_(\d+)_(\d+))\s*(?:=|:)??\s+([A-Za-z0-9_-]+)" %
     re.escape(ALIAS_PREFIX)
 )
+MARKER_NAME_RE = re.compile(
+    r"(?:^|\s)(?:alias\s+)?(%s\S*)" % re.escape(ALIAS_PREFIX)
+)
 MARKER_CHUNK_SIZE = 900
 DEFAULT_MAINTENANCE_ENTRY_TIMEOUT = 300
 MIN_MAINTENANCE_ENTRY_TIMEOUT = 30
@@ -94,6 +97,22 @@ def _read_markers(ctx):
                     "chunk": match.group(4),
                 })
     return markers
+
+
+def _read_marker_names(ctx):
+    """Find marker aliases across all command responses, including malformed ones."""
+    responses = _run(ctx, [
+        "enable",
+        "show running-config",
+        "show running-config | section alias",
+    ])
+    markers = set()
+    for response in responses:
+        payload = _payload(response)
+        for text in _alias_text(payload):
+            for match in MARKER_NAME_RE.finditer(text):
+                markers.add(match.group(1))
+    return sorted(markers)
 
 
 def _read_bgp(ctx):
@@ -222,17 +241,16 @@ def _check_enter_health(ctx):
 
 args = _config_args(ctx)
 ctx.info("Enter Stateful BGP Maintenance Mode started.")
-existing_markers = _read_markers(ctx)
+existing_markers = _read_marker_names(ctx)
 if existing_markers:
-    # More than one marker means a previous run could not be unambiguously
-    # associated with this action.  Do not risk using the wrong baseline.
-    totals = {marker["total"] for marker in existing_markers}
-    if len(totals) != 1:
-        _fail("Multiple or incomplete Stateful BGP baseline markers already exist")
-    ctx.info("Found %d existing baseline marker record(s); replacing them." %
-             len(existing_markers))
-else:
-    ctx.info("No existing Stateful BGP baseline marker found.")
+    _fail(
+        "Enter stopped safely: existing Stateful BGP baseline marker(s) were "
+        "found: {}. A previous maintenance cycle must be exited or recovered "
+        "before starting another one. Run Exit Stateful BGP Maintenance Mode, "
+        "or recover and verify the existing cycle manually; no configuration "
+        "was changed.".format(existing_markers)
+    )
+ctx.info("No existing Stateful BGP baseline marker found.")
 
 baseline = {
     "version": 1,
@@ -248,7 +266,6 @@ markers = _encode_markers(baseline)
 
 ctx.info("Writing %d baseline marker chunk(s) to the device." % len(markers))
 commands = ["enable", "configure session"]
-commands.extend("no alias " + marker["name"] for marker in existing_markers)
 commands.extend("alias %s %s" % (marker["name"], marker["chunk"])
                 for marker in markers)
 commands.append("maintenance")
